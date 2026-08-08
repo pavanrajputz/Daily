@@ -46,9 +46,19 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
 
-
+    //Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+
+    //Room
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+
+    //datastore
+    implementation(libs.androidx.datastore.preferences)
+
+    // Navigation
+    implementation(libs.androidx.navigation.compose)
 
 
     testImplementation(libs.junit)
