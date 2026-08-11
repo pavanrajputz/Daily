@@ -11,6 +11,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+
+import com.example.daily.R
+import com.example.daily.ui.onboarding.OnBoardingScreen
+import com.example.daily.ui.onboarding.OnboardingPage
 import com.example.daily.ui.theme.DailyTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,29 +23,13 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             DailyTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                val page = OnboardingPage(
+                image = R.drawable.onboarding_welcome,
+                title = "Small habits.\nBig results.",
+                description = "Create simple daily routines that improve your life one day at a time.")
+
+                Onboa
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    DailyTheme {
-        Greeting("Android")
     }
 }
