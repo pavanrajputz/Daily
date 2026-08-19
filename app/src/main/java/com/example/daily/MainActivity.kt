@@ -16,7 +16,9 @@ import com.example.daily.R
 import com.example.daily.ui.onboarding.OnBoardingScreen
 import com.example.daily.ui.onboarding.OnboardingPage
 import com.example.daily.ui.theme.DailyTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
