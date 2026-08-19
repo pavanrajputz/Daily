@@ -23,12 +23,21 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             DailyTheme {
+
                 val page = OnboardingPage(
                 image = R.drawable.onboarding_welcome,
                 title = "Small habits.\nBig results.",
-                description = "Create simple daily routines that improve your life one day at a time.")
+                description = "Create simple daily routines that improve your life one day at a time."
+                )
 
-                Onboa
+                OnBoardingScreen(
+                    page = page,
+                    pageIndex = 0,
+                    totalPages = 3,
+                    onNext = {},
+                    onPrevious = {},
+                    onSkip = {}
+                )
             }
         }
     }

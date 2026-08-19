@@ -24,12 +24,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 import com.example.daily.ui.theme.DailyBackground
 import com.example.daily.ui.theme.DailyPrimary
 import com.example.daily.ui.theme.DailyTextPrimary
 import com.example.daily.ui.theme.DailyTextSecondary
+
 
 @Composable
 fun OnBoardingScreen(
@@ -46,9 +48,10 @@ fun OnBoardingScreen(
         .padding(horizontal = 20.dp, vertical = 24.dp),
         horizontalAlignment = Alignment.CenterHorizontally) {
 
+        //Skip
         Row(modifier = Modifier
-            .fillMaxWidth()
-            .hor) {
+            .fillMaxWidth(),
+            horizontalArrangement = Arrangement.End) {
             Text(
                 text = "Skip",
                 color = DailyTextSecondary,
@@ -56,6 +59,7 @@ fun OnBoardingScreen(
             )
         }
         Spacer(Modifier.height(20.dp))
+        //Illustration
         Box(Modifier
             .fillMaxWidth()
             .height(360.dp)
@@ -71,6 +75,7 @@ fun OnBoardingScreen(
         }
 
         Spacer(Modifier.height(32.dp))
+        //Title
         Text(
             text = page.title,
             style = androidx.compose.material3.MaterialTheme.typography.headlineLarge,
@@ -79,6 +84,7 @@ fun OnBoardingScreen(
         )
 
         Spacer(Modifier.height(16.dp))
+        //Description
         Text(
             text = page.description,
             style = androidx.compose.material3.MaterialTheme.typography.bodyLarge,
@@ -88,6 +94,7 @@ fun OnBoardingScreen(
         )
 
         Spacer(Modifier.weight(1f))
+        //Page indicators
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -95,7 +102,7 @@ fun OnBoardingScreen(
                 Box(
                     modifier = Modifier
                         .height(8.dp)
-                        .weight(
+                        .width(
                             if(index == pageIndex) 32.dp else 8.dp
                         )
                         .clip(RoundedCornerShape(50.dp))
