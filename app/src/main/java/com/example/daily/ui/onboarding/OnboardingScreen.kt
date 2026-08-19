@@ -2,6 +2,7 @@ package com.example.daily.ui.onboarding
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -35,7 +36,7 @@ import com.example.daily.R
 
 
 @Composable
-fun OnBoardingScreen(
+fun OnboardingScreen(
     page: OnboardingPage,
     pageIndex: Int,
     totalPages: Int,
@@ -136,6 +137,9 @@ fun OnBoardingScreen(
                     modifier = Modifier
                         .padding(12.dp)
                         .clip(RoundedCornerShape(12.dp))
+                        .clickable{
+                            onPrevious()
+                        }
                 )
             } else {
                 Spacer(modifier = Modifier.width(80.dp))
@@ -174,7 +178,7 @@ fun OnBoardingScreen(
 @Composable
 private fun OnboardingScreenPreview() {
     DailyTheme {
-        OnBoardingScreen(
+        OnboardingScreen(
             page = OnboardingPage(
                 image = R.drawable.onboarding_welcome,
                 title = "Small habits.\nBig results.",

@@ -3,44 +3,77 @@ package com.example.daily
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-
-import com.example.daily.R
-import com.example.daily.ui.onboarding.OnBoardingScreen
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
 import com.example.daily.ui.onboarding.OnboardingPage
+import com.example.daily.ui.onboarding.OnboardingScreen
 import com.example.daily.ui.theme.DailyTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
         setContent {
             DailyTheme {
-
-                val page = OnboardingPage(
-                image = R.drawable.onboarding_welcome,
-                title = "Small habits.\nBig results.",
-                description = "Create simple daily routines that improve your life one day at a time."
-                )
-
-                OnBoardingScreen(
-                    page = page,
-                    pageIndex = 0,
-                    totalPages = 3,
-                    onNext = {},
-                    onPrevious = {},
-                    onSkip = {}
-                )
+                DailyOnboarding()
             }
         }
     }
+}
+
+@Composable
+private fun DailyOnboarding() {
+
+    val pages = listOf(
+
+        OnboardingPage(
+            image = R.drawable.onboarding_welcome,
+            title = "Small habits.\nBig results.",
+            description = "Create simple daily routines that improve your life one day at a time."
+        ),
+
+        OnboardingPage(
+            image = R.drawable.onboarding_progress,
+            title = "Track your progress",
+            description = "Stay motivated with beautiful statistics and daily streak tracking."
+        ),
+
+        OnboardingPage(
+            image = R.drawable.onboarding_consistency,
+            title = "Become consistent",
+            description = "Consistency beats perfection. Complete tiny habits every day."
+        )
+    )
+
+    val pageIndexState = remember {
+        mutableIntStateOf(0)
+    }
+
+    val pageIndex = pageIndexState.intValue
+
+    OnboardingScreen(
+        page = pages[pageIndex],
+        pageIndex = pageIndex,
+        totalPages = pages.size,
+
+        onNext = {
+            if (pageIndexState.intValue < pages.lastIndex) {
+                pageIndexState.intValue++
+            }
+        },
+
+        onPrevious = {
+            if (pageIndexState.intValue > 0) {
+                pageIndexState.intValue--
+            }
+        },
+
+        onSkip = {
+            // Login navigation will be added later.
+        }
+    )
 }
