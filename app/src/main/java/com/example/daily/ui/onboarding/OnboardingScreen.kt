@@ -1,6 +1,5 @@
 package com.example.daily.ui.onboarding
 
-import android.R
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -31,6 +30,8 @@ import com.example.daily.ui.theme.DailyBackground
 import com.example.daily.ui.theme.DailyPrimary
 import com.example.daily.ui.theme.DailyTextPrimary
 import com.example.daily.ui.theme.DailyTextSecondary
+import com.example.daily.ui.theme.DailyTheme
+import com.example.daily.R
 
 
 @Composable
@@ -163,5 +164,27 @@ fun OnBoardingScreen(
                 )
             }
         }
+    }
+}
+
+@Preview(
+    showBackground = true,
+    showSystemUi = true
+)
+@Composable
+private fun OnboardingScreenPreview() {
+    DailyTheme {
+        OnBoardingScreen(
+            page = OnboardingPage(
+                image = R.drawable.onboarding_welcome,
+                title = "Small habits.\nBig results.",
+                description = "Create simple daily routines that improve your life one day at a time."
+            ),
+            pageIndex = 0,
+            totalPages = 3,
+            onNext = {},
+            onPrevious = {},
+            onSkip = {}
+        )
     }
 }
