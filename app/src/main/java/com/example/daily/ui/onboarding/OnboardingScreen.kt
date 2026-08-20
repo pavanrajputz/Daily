@@ -50,7 +50,7 @@ fun OnboardingScreen(
         .padding(horizontal = 20.dp, vertical = 24.dp),
         horizontalAlignment = Alignment.CenterHorizontally) {
 
-        //Skip
+        //Skip button
         Row(modifier = Modifier
             .fillMaxWidth(),
             horizontalArrangement = Arrangement.End) {
@@ -70,7 +70,7 @@ fun OnboardingScreen(
             contentAlignment = Alignment.Center){
             Image(
                 painter = painterResource(page.image),
-                contentDescription = null,
+                contentDescription = "watering yourself",
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Fit
             )
