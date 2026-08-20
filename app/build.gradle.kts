@@ -60,6 +60,9 @@ dependencies {
     // Navigation
     implementation(libs.androidx.navigation.compose)
 
+    //icons
+    implementation(libs.androidx.compose.material.icons.extended)
+
 
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))

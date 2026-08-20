@@ -26,6 +26,8 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+
+
 private fun DailyOnboarding() {
 
     val pages = listOf(
