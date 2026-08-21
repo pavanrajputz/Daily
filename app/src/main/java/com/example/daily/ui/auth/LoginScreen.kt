@@ -1,5 +1,6 @@
 package com.example.daily.ui.auth
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -24,7 +25,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -47,6 +47,7 @@ import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.foundation.clickable
+import androidx.compose.ui.Alignment
 
 @Composable
 fun LoginScreen(
@@ -73,7 +74,7 @@ fun LoginScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(DailyBackground)
-            .padding(horizontal = 20.dp, vertical = 24.dp),
+            .padding(horizontal = 20.dp, vertical = 60.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.height(32.dp))
@@ -117,6 +118,7 @@ fun LoginScreen(
         )
 
         //content
+        Spacer(modifier = Modifier.height(32.dp))
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -133,6 +135,7 @@ fun LoginScreen(
                 color = DailyTextPrimary
             )
 
+            //email box
             Spacer(modifier = Modifier.height(8.dp))
 
             OutlinedTextField(
@@ -142,7 +145,7 @@ fun LoginScreen(
                 },
                 modifier = Modifier.fillMaxWidth(),
                 placeholder = {
-                    Text("your@gmai.com")
+                    Text("your@gmail.com")
                 },
                 leadingIcon = {
                     Icon(
@@ -192,9 +195,6 @@ fun LoginScreen(
                     password = it
                 },
                 modifier = Modifier.fillMaxWidth(),
-                placeholder = {
-                    Text("••••••••")
-                },
                 leadingIcon = {
                     Icon(
                         imageVector = Icons.Default.Lock,
@@ -278,6 +278,7 @@ fun LoginScreen(
                     .fillMaxWidth()
                     .height(56.dp),
                 shape = RoundedCornerShape(28.dp),
+                border = BorderStroke(1.dp, Color.LightGray),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Transparent,
                     contentColor = DailyTextPrimary
@@ -294,6 +295,7 @@ fun LoginScreen(
             Spacer(modifier = Modifier.height(24.dp))
 
             Row(
+                modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
