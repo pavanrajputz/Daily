@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import com.example.daily.ui.auth.LoginScreen
+import com.example.daily.ui.auth.SignupScreen
 import com.example.daily.ui.onboarding.OnboardingPage
 import com.example.daily.ui.onboarding.OnboardingScreen
 import com.example.daily.ui.theme.DailyTheme
@@ -20,11 +21,9 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             DailyTheme {
-                LoginScreen(
-                    onLogin = {},
-                    onSignUp = {},
-                    onForgotPassword = {},
-                    onGoogleLogin = {}
+                SignupScreen(
+                    onCreateAccount = {},
+                    onLogin = {}
                 )
             }
         }

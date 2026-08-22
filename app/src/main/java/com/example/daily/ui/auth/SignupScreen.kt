@@ -38,6 +38,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import com.example.daily.ui.theme.DailyBackground
 import com.example.daily.ui.theme.DailyPrimary
 import com.example.daily.ui.theme.DailyTextPrimary
@@ -63,6 +66,7 @@ fun SignupScreen(
     Column(
         modifier = Modifier.fillMaxSize()
             .background(DailyBackground)
+            .verticalScroll(rememberScrollState())
             .padding(20.dp, 60.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -334,14 +338,3 @@ fun SignupScreen(
 
 
 
-
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-private fun SignupScreenPreview() {
-    com.example.daily.ui.theme.DailyTheme {
-        SignupScreen(
-            onCreateAccount = {},
-            onLogin = {}
-        )
-    }
-}
