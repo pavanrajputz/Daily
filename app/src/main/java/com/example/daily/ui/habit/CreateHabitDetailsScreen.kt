@@ -1,7 +1,10 @@
 package com.example.daily.ui.habit
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -9,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -27,6 +31,8 @@ import androidx.compose.material.icons.filled.MusicNote
 import androidx.compose.material.icons.filled.Spa
 import androidx.compose.material.icons.filled.Timer
 import androidx.compose.material.icons.filled.Work
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -62,7 +68,7 @@ fun CreateHabitDetailsScreen(
     }
 
     val selectedIconState = remember {
-        mutableStateOf("")
+        mutableStateOf(0)
     }
 
 
@@ -87,7 +93,7 @@ fun CreateHabitDetailsScreen(
         modifier = Modifier.fillMaxSize()
             .background(DailyBackground)
             .verticalScroll(rememberScrollState())
-            .padding(20.dp, 20.dp)
+            .padding(20.dp, 40.dp)
     ) {
 
         //header
@@ -199,12 +205,73 @@ fun CreateHabitDetailsScreen(
                     color = Color.White,
                     shape = RoundedCornerShape(20.dp)
                 )
+                .border(
+                    width = 1.dp,
+                    color = Color.LightGray,
+                    shape = RoundedCornerShape(20.dp)
+                )
                 .padding(12.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
+            icons.chunked(4).forEachIndexed { rowIndex, rowIcons ->
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ) {
+                    rowIcons.forEachIndexed { columnIndex, icon ->
+                        val index = rowIndex*4 + columnIndex
+                        val selected = selectedIconState.value == index
 
+                        Box(
+                            modifier = Modifier.size(52.dp)
+                                .background(
+                                   color =  if(selected){
+                                       DailyPrimary.copy(alpha = 0.10f)
+                                   }else{
+                                       Color.Transparent
+                                   },
+                                    shape = RoundedCornerShape(50)
+                                )
+                                .clickable{
+                                    selectedIconState.value = index
+                                },
+                            contentAlignment = Alignment.Center
+                        ){
+                            Icon(
+                                imageVector = icon,
+                                contentDescription = null,
+                                tint = if (selected) {
+                                    DailyPrimary
+                                } else {
+                                    DailyTextSecondary
+                                },
+                                modifier = Modifier.size(26.dp)
+                            )
+                        }
+                    }
+                }
+            }
 
         }
+
+        Spacer(modifier = Modifier.height(32.dp))
+        //continue button
+        Button(
+            onClick = onContinue,
+            modifier = Modifier.fillMaxWidth()
+                .height(56.dp),
+            shape = RoundedCornerShape(28.dp),
+            colors = ButtonDefaults.buttonColors(
+                containerColor = DailyPrimary
+            )
+        ) {
+            Text(
+                text = "Continue",
+                fontSize = 16.sp,
+                fontWeight = FontWeight.SemiBold
+            )
+        }
+        Spacer(modifier = Modifier.height(12.dp))
     }
 }
 

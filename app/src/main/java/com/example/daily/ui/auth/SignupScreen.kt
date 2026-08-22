@@ -41,6 +41,7 @@ import androidx.compose.ui.unit.sp
 
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import com.example.daily.ui.habit.CreateHabitDetailsScreen
 import com.example.daily.ui.theme.DailyBackground
 import com.example.daily.ui.theme.DailyPrimary
 import com.example.daily.ui.theme.DailyTextPrimary
@@ -333,6 +334,17 @@ fun SignupScreen(
         }
     }
 
+}
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+private fun CreateHabitDetailsScreenPreview(){
+    com.example.daily.ui.theme.DailyTheme {
+        SignupScreen(
+            onCreateAccount = {},
+            onLogin = {}
+        )
+    }
 }
 
 

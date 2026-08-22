@@ -44,6 +44,8 @@ import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.foundation.clickable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.tooling.preview.Preview
+import com.example.daily.ui.habit.CreateHabitDetailsScreen
 
 @Composable
 fun LoginScreen(
@@ -313,5 +315,18 @@ fun LoginScreen(
                 )
             }
         }
+    }
+}
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+private fun CreateHabitDetailsScreenPreview(){
+    com.example.daily.ui.theme.DailyTheme {
+        LoginScreen(
+            onLogin = {},
+            onSignUp = {},
+            onForgotPassword = {},
+            onGoogleLogin = {}
+        )
     }
 }
