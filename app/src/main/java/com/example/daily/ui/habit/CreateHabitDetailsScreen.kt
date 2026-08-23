@@ -18,7 +18,8 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.MenuBook
 import androidx.compose.material.icons.filled.Book
 import androidx.compose.material.icons.filled.Brush
 import androidx.compose.material.icons.filled.Computer
@@ -26,7 +27,6 @@ import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.FitnessCenter
 import androidx.compose.material.icons.filled.LocalDrink
 import androidx.compose.material.icons.filled.LocalFlorist
-import androidx.compose.material.icons.filled.MenuBook
 import androidx.compose.material.icons.filled.MusicNote
 import androidx.compose.material.icons.filled.Spa
 import androidx.compose.material.icons.filled.Timer
@@ -75,7 +75,7 @@ fun CreateHabitDetailsScreen(
     //icons list
     val icons = listOf(
         Icons.Default.FitnessCenter,
-        Icons.Default.MenuBook,
+        Icons.AutoMirrored.Filled.MenuBook,
         Icons.Default.LocalDrink,
         Icons.Default.Spa,
         Icons.Default.Work,
@@ -106,7 +106,7 @@ fun CreateHabitDetailsScreen(
                 onClick = onBack
             ) {
                 Icon(
-                    imageVector = Icons.Default.ArrowBack,
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = "Back",
                     tint = DailyTextPrimary
                 )
