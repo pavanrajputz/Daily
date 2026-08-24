@@ -123,7 +123,7 @@ fun CreateHabitDetailsScreen(
                     text = "Create habit",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
-                    color = DailyPrimary
+                    color = DailyTextPrimary
                 )
                 
                 //steps heading
