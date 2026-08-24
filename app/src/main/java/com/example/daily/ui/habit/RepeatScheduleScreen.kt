@@ -40,6 +40,7 @@ import com.example.daily.ui.theme.DailyBackground
 import com.example.daily.ui.theme.DailyPrimary
 import com.example.daily.ui.theme.DailyTextPrimary
 import com.example.daily.ui.theme.DailyTextSecondary
+import kotlin.math.sin
 
 @Composable
 fun RepeatScheduleScreen(
@@ -107,7 +108,7 @@ fun RepeatScheduleScreen(
                     text = "Repeat Schedule",
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold,
-                    color = DailyPrimary
+                    color = DailyTextPrimary
                 )
 
                 //steps heading
@@ -290,6 +291,11 @@ private fun FrequencyCard(
                 },
                 shape = RoundedCornerShape(12.dp)
             )
+            .border(
+                width = 1.dp,
+                color = Color.LightGray,
+                shape = RoundedCornerShape(12.dp)
+            )
             .clickable {
                 onClick()
             }
@@ -354,6 +360,11 @@ private fun DayCircle(
                     } else {
                         Color(0xFFE8EDF7)
                     },
+                    shape = RoundedCornerShape(50)
+                )
+                .border(
+                    width = 1.dp,
+                    color = Color.LightGray,
                     shape = RoundedCornerShape(50)
                 )
                 .clickable {

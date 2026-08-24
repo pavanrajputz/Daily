@@ -27,6 +27,9 @@ workManager = "2.11.2"
 timber = "5.0.1"
 
 coil = "3.3.0"
+foundation = "1.12.0"
+uiGraphics = "1.12.0"
+foundationLayout = "1.12.0"
 
 
 
@@ -81,6 +84,9 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 
 #Icons
 androidx-compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
+androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundation" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "uiGraphics" }
+androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "foundationLayout" }
 
 
 [plugins]
