@@ -136,7 +136,7 @@ fun ChooseCategory(
                 )
 
                 Text(
-                    text = "Step 2 of 4",
+                    text = "Step 3 of 4",
                     fontSize = 12.sp,
                     color = DailyTextSecondary
                 )
