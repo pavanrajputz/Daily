@@ -105,7 +105,7 @@ fun ChooseCategory(
             .fillMaxSize()
             .background(DailyBackground)
             .verticalScroll(rememberScrollState())
-            .padding(horizontal = 20.dp, vertical = 40.dp)
+            .padding(horizontal = 20.dp, vertical = 60.dp)
     ){
         // Header
         Row(

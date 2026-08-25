@@ -24,6 +24,7 @@ import androidx.compose.material.icons.filled.Replay
 import androidx.compose.material.icons.filled.Vibration
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Switch
@@ -71,7 +72,7 @@ fun ReminderScreen(
 
     Column(
         modifier = Modifier.fillMaxSize()
-            .padding(20.dp, 40.dp)
+            .padding(20.dp, 60.dp)
             .background(DailyBackground)
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
