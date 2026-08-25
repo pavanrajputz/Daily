@@ -93,7 +93,7 @@ fun CreateHabitDetailsScreen(
         modifier = Modifier.fillMaxSize()
             .background(DailyBackground)
             .verticalScroll(rememberScrollState())
-            .padding(20.dp, 40.dp)
+            .padding(20.dp, 60.dp)
     ) {
 
         //header

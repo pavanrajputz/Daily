@@ -105,7 +105,7 @@ fun ChooseCategory(
             .fillMaxSize()
             .background(DailyBackground)
             .verticalScroll(rememberScrollState())
-            .padding(horizontal = 20.dp, vertical = 40.dp)
+            .padding(horizontal = 20.dp, vertical = 60.dp)
     ){
         // Header
         Row(
@@ -136,7 +136,7 @@ fun ChooseCategory(
                 )
 
                 Text(
-                    text = "Step 2 of 4",
+                    text = "Step 3 of 4",
                     fontSize = 12.sp,
                     color = DailyTextSecondary
                 )
