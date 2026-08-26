@@ -166,9 +166,9 @@ fun EditHabitScreen(
             )
             Spacer(modifier = Modifier.height(8.dp))
             OutlinedTextField(
-                value = habitNameState.value,
+                value = descriptionState.value,
                 onValueChange = {
-                    habitNameState.value = it
+                    descriptionState.value = it
                 },
                 modifier = Modifier.fillMaxWidth()
                     .height(110.dp),
@@ -182,6 +182,8 @@ fun EditHabitScreen(
 
             //ohter arbitraries taking
             Spacer(modifier = Modifier.height(20.dp))
+
+            //dropdowns
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
@@ -191,34 +193,26 @@ fun EditHabitScreen(
                 Column(
                     modifier = Modifier.weight(1f),
                 ) {
-                    Text(
-                        text = "Category",
-                        fontSize = 14.sp,
-                        color = DailyTextSecondary
-                    )
 
                     EditSelector(
                         label = "Category",
                         value = selectedCategory.value,
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier.fillMaxWidth(),
                         onClick = {}
                     )
                 }
+
+                Spacer(modifier = Modifier.width(12.dp))
 
                 //icon dropdown
                 Column(
                     modifier = Modifier.weight(1f),
                 ) {
-                    Text(
-                        text = "Icon",
-                        fontSize = 14.sp,
-                        color = DailyTextSecondary
-                    )
 
                     EditSelector(
                         label = "Icon",
                         value = "Running",
-                        modifier = Modifier.weight(1f),
+                        modifier = Modifier.fillMaxWidth(),
                         icon = Icons.AutoMirrored.Filled.DirectionsRun,
                         onClick = {}
                     )
@@ -486,8 +480,12 @@ private fun EditSelector(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(44.dp)
-                .background(
-                    Color.White,
+                .border(
+                    width = 1.dp,
+                    color = Color(0xFFC5D2C5),
+                    shape = RoundedCornerShape(8.dp)
+                )
+                .clip(
                     RoundedCornerShape(8.dp)
                 )
                 .clickable {
@@ -521,7 +519,8 @@ private fun EditSelector(
             Icon(
                 imageVector = Icons.Default.ArrowDropDown,
                 contentDescription = "Select",
-                tint = DailyTextSecondary
+                tint = DailyTextSecondary,
+                modifier = Modifier.size(20.dp)
             )
         }
     }
@@ -553,6 +552,11 @@ private fun ColorOption(
                     .background(
                         Color.White,
                         CircleShape
+                    )
+                    .border(
+                        width = 2.dp,
+                        color = color,
+                        shape = CircleShape
                     )
             )
         }
